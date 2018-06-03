@@ -77,7 +77,7 @@ nav h1 a {
 }
 
 /* responsive nav inside restaurant details */
-@media only screen and (min-width: 1150px) {
+@media only screen and (min-width: 1151px) {
 	#breadcrumb {
 	    padding: 10px 40px 16px;
 	    list-style: none;
@@ -142,14 +142,23 @@ nav h1 a {
   letter-spacing: 0;
   margin: 10px;
   padding: 0 10px;
-  width: 100%;
+  width: 90%;
   text-align-last: center;
   padding-right: 25px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
 	.filter-options {
 		flex-direction: row;
+	}
+	.filter-options select {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.filter-options {
+		padding-top: 10px;
 	}
 }
 
