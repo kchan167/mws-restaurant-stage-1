@@ -73,7 +73,19 @@ nav h1 a {
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
+    width: 100%;
+}
+
+/* responsive nav inside restaurant details */
+@media only screen and (min-width: 1150px) {
+	#breadcrumb {
+	    padding: 10px 40px 16px;
+	    list-style: none;
+	    background-color: #eee;
+	    font-size: 17px;
+	    margin: 0;
+	    width: calc(50% - 80px);
+	}
 }
 
 /* Display list items side by side */
@@ -168,7 +180,7 @@ nav h1 a {
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
-  margin: 0;
+  margin-top: 10px;
   width: 100%;
 }
 #restaurants-list li h1 {
@@ -200,18 +212,11 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
-  position: fixed;
-  top: 0;
   width: 100%;
-  z-index: 1000;
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 87%;
-  position: fixed;
-  right: 0;
-  top: 80px;
-  width: 50%;
+  width: 100%;
 }
 .inside #map {
   background-color: #ccc;
@@ -221,7 +226,7 @@ nav h1 a {
 .inside #footer {
   bottom: 0;
   position: absolute;
-  width: 50%;
+  width: 100%;
 }
 #restaurant-name {
   color: #f18200;
@@ -233,6 +238,7 @@ nav h1 a {
   text-transform: uppercase;
   line-height: 1.1;
 }
+
 #restaurant-img {
 	width: 90%;
 }
@@ -288,4 +294,37 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+/* responsive nav, map, and footer inside restaurant details */
+@media only screen and (min-width: 1151px) {
+	.inside header {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 1000;
+	}
+	.inside #map-container {
+		background: blue none repeat scroll 0 0;
+		height: 87%;
+		position: fixed;
+		right: 0;
+		top: 80px;
+		width: 50%;
+	}
+	.inside #footer {
+	  width: 45%;
+	}
+}
+
+/* responsive map and review list inside restaurant details */
+@media only screen and (max-width: 1150px) {
+	#maincontent #map-container {
+		height: 400px;
+		width: 100%;
+	}
+	#restaurant-container, #reviews-container {
+		padding: 40px 40px 30px;
+		width: 100%;
+	}
 }
