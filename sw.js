@@ -1,6 +1,3 @@
-self.addEventListener('install', function (event) {
-  // Perform install steps
-});
 var staticCacheName = 'restaurant-v0';
 var urlToCache = [
     '/',
@@ -22,8 +19,13 @@ var urlToCache = [
     'img/9.jpg',
     'img/10.jpg',
 ];
-
-// Install service worker
+/**
+* @description Install service worker
+* @param {string} 'install'
+* @param {function} function(event){}
+* @returns {cache} Return the given cache which is added a
+*                  series of resulting response objects
+*/
 self.addEventListener('install', function(event) {
     console.log('service worker installed');
     event.waitUntil(
@@ -33,8 +35,13 @@ self.addEventListener('install', function(event) {
         })
     );
 });
-
-// Delete old cache
+/**
+* @description Delete old cache
+* @param {string} 'activate'
+* @param {function} function(event){}
+* @returns {caches} Return caches except the given cache
+*                   that suppose to be deleted
+*/
 self.addEventListener('activate', function(event) {
     event.waitUntil(
         caches.keys().then(function(cacheNames) {
@@ -50,16 +57,25 @@ self.addEventListener('activate', function(event) {
     );
 });
 
-// Update new cache
+/**
+* @description Update new cache
+* @param {request} request
+* @returns {cache} Return an update cache
+*/
 function update(request) {
     return caches.open(staticCacheName).then(function(cache) {
         return fetch(request).then(function(response) {
             return cache.put(request, response);
         })
     });
-};
+}
 
-// Register service worker
+/**
+* @description Register service worker
+* @param {string} 'fetch'
+* @param {function} function(event){}
+* @returns {Promise} Return a promise containing the response
+*/
 self.addEventListener('fetch', function(event) {
     console.log(event.request);
     event.respondWith(
@@ -73,6 +89,13 @@ self.addEventListener('fetch', function(event) {
     event.waitUntil(update(event.request));
 });
 
+/**
+* @description Ensure that updates to the underlying service
+*              worker take effect immediately for both the current
+*              client and all other active clients
+* @param {string} 'message'
+* @param {function} function(event){}
+*/
 self.addEventListener('message', function(event) {
     if(event.data.action === 'skipWaiting') {
         self.skipWaiting();
