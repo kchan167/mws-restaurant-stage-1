@@ -12,6 +12,7 @@
 
 ## Updates
 ### 6/4/2018
+- e07a007 feat: Update responsive design on restaurant.html
 - 624e9b8 feat: Add accessibility to images
 - 0a0dc24 docs: Add comments to sw.js
 ### 6/3/2018
@@ -56,4 +57,3 @@ In a terminal, check the version of Python you have: `python -V`. If you have Py
 ### Note about ES6
 
 Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript I write.
- 
